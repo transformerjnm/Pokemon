@@ -18,6 +18,8 @@
 
     git branch -d <branchname>
 
+    somehow pull from master branch now and before coding with cmd 
+
    
     
     
