@@ -142,4 +142,4 @@ let getData = ( offset, pokemon ) => {
 
 
 // getData( 0 , "squirtle" );
-//getData(  );
+getData(  );
