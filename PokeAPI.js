@@ -25,6 +25,7 @@
     
 
 */
+
 let getData = ( offset, pokemon ) => {
 
     let pokemonDisplay =  document.getElementById( 'pokemonDisplay' );
