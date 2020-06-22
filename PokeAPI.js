@@ -35,16 +35,19 @@ let getData = ( offset, pokemon ) => {
 
     if( !offset && !pokemon ) {
 
+        //get first 20 pokemon
         var url = ' https://pokeapi.co/api/v2/pokemon/ ';
         resultSetPlural = true;
 
     } else if ( pokemon ) {
 
+        //get info about a specific pokemon
         var url = ' https://pokeapi.co/api/v2/pokemon/' + pokemon;
         resultSetPlural = false;
       
     } else {
 
+        //get pokemon with a offset
         var url = ' https://pokeapi.co/api/v2/pokemon/?offset=' + offset;
         resultSetPlural = true;
 
@@ -57,12 +60,12 @@ let getData = ( offset, pokemon ) => {
         ( response ) => {
     
             return response.json();
-    
+            
     }  
     ).then( ( data ) => {
        
        if ( resultSetPlural ) {
-        
+
             data.results.forEach( singlePokemon => {
                 
                 allPokemon += '<p>' + singlePokemon.name + '</p>';
@@ -72,19 +75,50 @@ let getData = ( offset, pokemon ) => {
              pokemonDisplay.innerHTML = allPokemon;
       
        } else {
+            
+           //show info about single pokemon
+        
+            //pokemonStats is all the stats for the pokemon. name, type, abilities etc.
+            let pokemonStats = "<h5 id=\"pokemonName\"> Name: " + pokemon + "</h5><br>";  
+            
+            //pokemonTypes is just the current pokemon types       
+            let pokemonTypes = "<p id=\"pokemonType\"> Type: ";
 
-            let pokemonStats = "Name: " + pokemon + "<br>";          
-            let pokemonTypes = "Type: ";
+            //pokemonMoves is all of the current pokemon's moves
+            let pokemonMoves = "<p id=\"pokemonMoves\"> Moves: ";
 
+            data.moves.forEach( move => {
+                
+                //move array is an array of all the moves the current pokemon has.
+                let moveArray = Object.entries(move.move);
+                
+
+                pokemonMoves +=  moveArray[0][1] + ", ";
+               
+
+            });
+                
+            //gets each pokemon type and adds a / after
             data.types.forEach( singleType => {
 
                 pokemonTypes += singleType.type.name + " / ";
                
             });
 
+            //removes last 
             pokemonTypes = pokemonTypes.slice( 0, pokemonTypes.length - 2 );
+            
+            //closes the paragraph for pokemon types.
+            pokemonTypes += "</p>";
+
+            //adds formated pokemon types to pokemon stats 
             pokemonStats += pokemonTypes;
+
+            pokemonStats += pokemonMoves;
+
+            //show user the pokemon info
             pokemonDisplay.innerHTML = pokemonStats;
+            
 
        }
            
@@ -92,4 +126,20 @@ let getData = ( offset, pokemon ) => {
     
 
 };
-getData( 0 , "bulbasaur" );
+
+ 
+    let pokemonNameBtn = document.getElementById('submit');
+   
+    document.getElementById('submit').addEventListener( 'click', (e) => {
+
+        let pokemonName = document.getElementById("pokemonName").value;
+        getData(0, pokemonName);
+
+    });
+
+
+
+
+
+// getData( 0 , "squirtle" );
+//getData(  );
