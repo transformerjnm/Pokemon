@@ -58,12 +58,12 @@ let getData = ( offset, pokemon ) => {
     fetch( req )
     .then(
         ( response ) => {
-    
+            
             return response.json();
             
     }  
     ).then( ( data ) => {
-       
+        
        if ( resultSetPlural ) {
 
             data.results.forEach( singlePokemon => {
@@ -136,6 +136,12 @@ let getData = ( offset, pokemon ) => {
         getData(0, pokemonName);
 
     });
+
+    let loadMorePokemonBtn = document.getElementById('loadMoreBtn');
+
+    loadMorePokemonBtn.addEventListener( 'click', (e) => {
+        getData(20);
+    } );
 
 
 
