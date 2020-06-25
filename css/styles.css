@@ -26,7 +26,7 @@ p{
     color: var(--font-color1);
     background-color: var(--accent-color);
     border: none;
-    transition: background-color 1s ease-in-out;
+    transition: background-color .5s ease-in-out;
 }
 
 .submitBtn:hover, #loadMoreBtn:hover{
@@ -37,5 +37,9 @@ p{
 .submitBtn:focus, #loadMoreBtn:focus{
     transform: scale(1.1);
     background-color: var(--font-color2);
+}
+
+#pokemonDisplay{
+    background-color: var(--bg-color1);
 }
 
