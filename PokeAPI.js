@@ -128,22 +128,26 @@ let getData = ( offset, pokemon ) => {
 };
 
  
-    let pokemonNameBtn = document.getElementById('submit');
+    let pokemonNameBtn = document.getElementById('submit'); //selects the submit button
    
     document.getElementById('submit').addEventListener( 'click', (e) => {
 
-        let pokemonName = document.getElementById("pokemonName").value;
+        let pokemonName = document.getElementById("pokemonName").value; //gets the pokemon name value
         getData(0, pokemonName);
 
     });
 
-    let loadMorePokemonBtn = document.getElementById('loadMoreBtn');
+    let loadMorePokemonBtn = document.getElementById('loadMoreBtn'); //selects the load more button
 
     loadMorePokemonBtn.addEventListener( 'click', (e) => {
-        getData(20);
+        getData(20); //every time the button is clicked load another 20 pokemon
     } );
 
 
+
+    /*
+        logic so that when a pokemon in the list is clicked on the site will show the states on that specific pokemon clicked.
+    */
 
 
 
