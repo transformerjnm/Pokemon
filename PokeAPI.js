@@ -1,10 +1,6 @@
 /*
-
     git init
     git remote add origin https://github.com/transformerjnm/Pokemon.git
-
-
-
 
 
     git checkout -b <branchname>
@@ -20,14 +16,13 @@
 
     somehow pull from master branch now and before coding with cmd 
 
-   
-    
-    
-
 */
 
-let getData = ( offset, pokemon ) => {
+//current offset of pokemon list.  
+let currentPokemonNum = 0;
 
+let getData = ( offset, pokemon ) => {
+   
     let pokemonDisplay =  document.getElementById( 'pokemonDisplay' );
     let allPokemon = "";
     //if were getting more than one pokemon true else false
@@ -66,12 +61,17 @@ let getData = ( offset, pokemon ) => {
         
        if ( resultSetPlural ) {
 
+            //show list of pokemon
+
+            //add each pokemon from the result set to the all Pokemon in formatted html
             data.results.forEach( singlePokemon => {
                 
-                allPokemon += '<p>' + singlePokemon.name + '</p>';
+                //single pokemon that on click loads that pokemon stats.
+                allPokemon += ' <p onclick = \" getData( 0, \' ' + singlePokemon.name + ' \' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
 
             });
    
+            //add formatted html to div pokemon display
              pokemonDisplay.innerHTML = allPokemon;
       
        } else {
@@ -120,36 +120,45 @@ let getData = ( offset, pokemon ) => {
             pokemonDisplay.innerHTML = pokemonStats;
             
 
-       }
+       }// if ( resultSetPlural )
            
-    });
+    });// end of fetch
     
-
-};
+};// getData()
 
  
-    let pokemonNameBtn = document.getElementById('submit'); //selects the submit button
+/*----------  get stats of a single pokemon By Name ---------- */
+let pokemonNameBtn = document.getElementById( 'submit' ); //selects the submit button
    
-    document.getElementById('submit').addEventListener( 'click', (e) => {
+document.getElementById( 'submit' ).addEventListener( 'click', ( e ) => {
 
-        let pokemonName = document.getElementById("pokemonName").value; //gets the pokemon name value
-        getData(0, pokemonName);
+    //gets the pokemon name value
+    let pokemonName = document.getElementById("pokemonName").value; 
+    getData(0, pokemonName);
 
-    });
+});
 
-    let loadMorePokemonBtn = document.getElementById('loadMoreBtn'); //selects the load more button
+/*----------  Load Previous Pokemon ---------- */
+let loadPrevPokemonBtn = document.getElementById( 'loadPrevBtn' ); 
 
-    loadMorePokemonBtn.addEventListener( 'click', (e) => {
-        getData(20); //every time the button is clicked load another 20 pokemon
-    } );
+loadPrevPokemonBtn.addEventListener( 'click', ( e ) => {
 
+    //every time the button is clicked load previous 20 pokemon
+    currentPokemonNum -= 20;
+    getData( currentPokemonNum ); 
+ 
+} );
 
+/*---------- Load More Pokemon ---------- */
+let loadMorePokemonBtn = document.getElementById( 'loadMoreBtn' ); 
 
-    /*
-        logic so that when a pokemon in the list is clicked on the site will show the states on that specific pokemon clicked.
-    */
+loadMorePokemonBtn.addEventListener( 'click', ( e ) => {
 
+    //every time the button is clicked load another 20 pokemon
+    currentPokemonNum += 20;   
+    getData( currentPokemonNum ); 
 
+} );
 
-// getData( 0 , "squirtle" );
+//show list of pokemon on load of page.
 getData(  );
