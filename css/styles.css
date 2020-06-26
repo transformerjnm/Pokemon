@@ -1,45 +1,50 @@
-:root{
+:root {
     --bg-color1: #FCFFF7;
     --accent-color: #FFE900;
     --font-color1: #0E1116;
     --font-color2: #4062BB;
 }
 
-h1{
+h1 {
     color: var(--accent-color);
 }
 
-main{
+main {
     background-color: var(--bg-color1);
 }
 
-p{
+p {
     color: var(--font-color1);
-    font-weight: bold;
 }
 
-.jumbotron{
+.jumbotron {
     background-image: linear-gradient(45deg, var(--font-color1), var(--font-color2));
 }
 
-.submitBtn, #loadMoreBtn{
+.submitBtn, #loadMoreBtn, #loadPrevBtn {
     color: var(--font-color1);
     background-color: var(--accent-color);
     border: none;
     transition: background-color .5s ease-in-out;
 }
 
-.submitBtn:hover, #loadMoreBtn:hover{
+.submitBtn:hover, #loadMoreBtn:hover, .submitBtn:focus, #loadMoreBtn:focus {
     transform: scale(1.1);
     background-color: var(--font-color2);
 }
 
-.submitBtn:focus, #loadMoreBtn:focus{
-    transform: scale(1.1);
-    background-color: var(--font-color2);
+p {
+    font-size: 1.2rem;
+    line-height: 3rem;
+    letter-spacing: .1rem ;
 }
 
-#pokemonDisplay{
-    background-color: var(--bg-color1);
+.pokemonList {
+    height: 2rem;
+    font-size: 1rem;
+    line-height: normal;
+    font-weight: bold;
+    letter-spacing: .1rem ;
+    cursor: pointer;
 }
 
