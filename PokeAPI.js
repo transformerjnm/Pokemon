@@ -52,77 +52,81 @@ let getData = ( offset, pokemon ) => {
     
     fetch( req )
     .then(
+
         ( response ) => {
-            
+     
             return response.json();
             
-    }  
-    ).then( ( data ) => {
+        }  
+
+    ).then( 
         
-       if ( resultSetPlural ) {
-
-            //show list of pokemon
-
-            //add each pokemon from the result set to the all Pokemon in formatted html
-            data.results.forEach( singlePokemon => {
-                
-                //single pokemon that on click loads that pokemon stats.
-                allPokemon += ' <p onclick = \" getData( 0, \' ' + singlePokemon.name + ' \' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
-
-            });
-   
-            //add formatted html to div pokemon display
-             pokemonDisplay.innerHTML = allPokemon;
-      
-       } else {
-            
-           //show info about single pokemon
+        ( data ) => {
         
-            //pokemonStats is all the stats for the pokemon. name, type, abilities etc.
-            let pokemonStats = "<h5 id=\"pokemonName\"> Name: " + pokemon + "</h5><br>";  
+            if ( resultSetPlural ) {
+
+                //show list of pokemon
+
+                //add each pokemon from the result set to the all Pokemon in formatted html
+                data.results.forEach( singlePokemon => {
+                        
+                    //single pokemon that on click loads that pokemon stats.
+                    allPokemon += ' <p onclick = \" getData( 0, \'' + singlePokemon.name + '\' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
+
+                });
+        
+                //add formatted html to div pokemon display
+                pokemonDisplay.innerHTML = allPokemon;
             
-            //pokemonTypes is just the current pokemon types       
-            let pokemonTypes = "<p id=\"pokemonType\"> Type: ";
-
-            //pokemonMoves is all of the current pokemon's moves
-            let pokemonMoves = "<p id=\"pokemonMoves\"> Moves: ";
-
-            data.moves.forEach( move => {
+            } else {
                 
-                //move array is an array of all the moves the current pokemon has.
-                let moveArray = Object.entries(move.move);
+                //show info about single pokemon
                 
+                //pokemonStats is all the stats for the pokemon. name, type, abilities etc.
+                let pokemonStats = "<h5 id=\"pokemonName\"> Name: " + pokemon + "</h5><br>";  
+                    
+                //pokemonTypes is just the current pokemon types       
+                let pokemonTypes = "<p id=\"pokemonType\"> Type: ";
 
-                pokemonMoves +=  moveArray[0][1] + ", ";
-               
+                //pokemonMoves is all of the current pokemon's moves
+                let pokemonMoves = "<p id=\"pokemonMoves\"> Moves: ";
 
-            });
-                
-            //gets each pokemon type and adds a / after
-            data.types.forEach( singleType => {
+                data.moves.forEach( move => {
+                        
+                    //move array is an array of all the moves the current pokemon has.
+                    let moveArray = Object.entries(move.move);
+                    
+                    pokemonMoves +=  moveArray[0][1] + ", ";
 
-                pokemonTypes += singleType.type.name + " / ";
-               
-            });
+                });
+                        
+                //gets each pokemon type and adds a / after
+                data.types.forEach( singleType => {
 
-            //removes last 
-            pokemonTypes = pokemonTypes.slice( 0, pokemonTypes.length - 2 );
-            
-            //closes the paragraph for pokemon types.
-            pokemonTypes += "</p>";
+                    pokemonTypes += singleType.type.name + " / ";
+                    
+                });
 
-            //adds formated pokemon types to pokemon stats 
-            pokemonStats += pokemonTypes;
+                //removes last 
+                pokemonTypes = pokemonTypes.slice( 0, pokemonTypes.length - 2 );
+                    
+                //closes the paragraph for pokemon types.
+                pokemonTypes += "</p>";
 
-            pokemonStats += pokemonMoves;
+                //adds formated pokemon types to pokemon stats 
+                pokemonStats += pokemonTypes;
 
-            //show user the pokemon info
-            pokemonDisplay.innerHTML = pokemonStats;
-            
+                pokemonStats += pokemonMoves;
 
-       }// if ( resultSetPlural )
+                //show user the pokemon info
+                pokemonDisplay.innerHTML = pokemonStats;
+                    
+
+            }// if ( resultSetPlural )
            
-    });// end of fetch
+        }//fetch.then()
+
+    );// end of fetch
     
 };// getData()
 
