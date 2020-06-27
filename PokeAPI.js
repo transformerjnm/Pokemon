@@ -164,5 +164,14 @@ loadMorePokemonBtn.addEventListener( 'click', ( e ) => {
 
 } );
 
+/*----------show all pokemon ----------- */
+let allPokemonBtn = document.getElementById('allPokemonBtn');
+
+allPokemonBtn.addEventListener('click', (e) => {
+
+    getData();
+
+});
+
 //show list of pokemon on load of page.
 getData(  );

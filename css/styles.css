@@ -21,16 +21,21 @@ p {
     background-image: linear-gradient(45deg, var(--font-color1), var(--font-color2));
 }
 
-.submitBtn, #loadMoreBtn, #loadPrevBtn {
+.submitBtn, #loadMoreBtn, #loadPrevBtn, #allPokemonBtn {
     color: var(--font-color1);
     background-color: var(--accent-color);
     border: none;
-    transition: background-color .5s ease-in-out;
+    transition: background-color .6s ease-in-out;
 }
 
-.submitBtn:hover, #loadMoreBtn:hover, .submitBtn:focus, #loadMoreBtn:focus {
+.submitBtn:hover, #loadMoreBtn:hover, .submitBtn:focus, #loadMoreBtn:focus, #loadPrevBtn:hover, #loadPrevBtn:focus, #allPokemonBtn:hover, #allPokemonBtn:focus {
     transform: scale(1.1);
     background-color: var(--font-color2);
+    box-shadow: none;
+}
+
+#submit:active, #loadMoreBtn:active, #allPokemonBtn:active, #loadPrevBtn:active{
+    box-shadow: none !important;
 }
 
 p {
