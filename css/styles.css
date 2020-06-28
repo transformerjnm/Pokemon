@@ -17,6 +17,19 @@ p {
     color: var(--font-color1);
 }
 
+a{
+    color: var(--accent-color);
+}
+
+a:hover{
+    color: var(--font-color1);
+}
+
+footer{
+    color: var(--accent-color);
+    background-image: linear-gradient(45deg, var(--font-color2), var(--font-color1));
+}
+
 .jumbotron {
     background-image: linear-gradient(45deg, var(--font-color1), var(--font-color2));
 }
