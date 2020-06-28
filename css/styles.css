@@ -5,6 +5,10 @@
     --font-color2: #4062BB;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 h1 {
     color: var(--accent-color);
 }
@@ -35,14 +39,14 @@ footer{
     background-image: linear-gradient(45deg, var(--font-color1), var(--font-color2));
 }
 
-.submitBtn, #loadMoreBtn, #loadPrevBtn, #allPokemonBtn, .btn {
+.submitBtn, #loadMoreBtn, #loadPrevBtn, #allPokemonBtn {
     color: var(--font-color1);
     background-color: var(--accent-color);
     border: none;
     transition: background-color .6s ease-in-out;
 }
 
-.submitBtn:hover, #loadMoreBtn:hover, .submitBtn:focus, #loadMoreBtn:focus, #loadPrevBtn:hover, #loadPrevBtn:focus, #allPokemonBtn:hover, #allPokemonBtn:focus {
+ #loadMoreBtn:hover, #loadMoreBtn:focus, #loadPrevBtn:hover, #loadPrevBtn:focus, #allPokemonBtn:hover, #allPokemonBtn:focus {
     transform: scale(1.1);
     background-color: var(--font-color2);
     box-shadow: none;
@@ -50,6 +54,10 @@ footer{
 
 #submit:active, #loadMoreBtn:active, #allPokemonBtn:active, #loadPrevBtn:active{
     box-shadow: none !important;
+}
+
+#submit:hover{
+    background-color: var(--font-color2);
 }
 
 p {
@@ -65,5 +73,20 @@ p {
     font-weight: bold;
     letter-spacing: .1rem ;
     cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+
+.pokemonMove {
+    padding: .25rem;
+    cursor: pointer;
+    color: var(--font-color1);
+    display: inline-block;
+    transition: transform .2s ease-in-out;
+}
+
+.pokemonMove:hover, .pokemonMove:focus, .pokemonList:hover, .pokemonList:focus {
+    transform: scale(1.3);
+    background-color: var(--bg-color1);
+   
 }
 

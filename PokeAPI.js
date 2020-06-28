@@ -156,7 +156,7 @@ let getPokemon = ( offset, pokemon ) => {
                     //move array is an array of all the moves the current pokemon has.
                     let moveArray = Object.entries(move.move);
                     
-                    pokemonMoves += '<span onclick = \" getMove( \'' + moveArray[0][1] + '\' , \''+ pokemon +'\' ) \" >' + moveArray[0][1] + "</span>, ";
+                    pokemonMoves += '<span class="pokemonMove" onclick = \" getMove( \'' + moveArray[0][1] + '\' , \''+ pokemon +'\' ) \" >' + moveArray[0][1] + "</span>, ";
                     
                     
                 });
