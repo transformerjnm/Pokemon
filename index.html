@@ -8,7 +8,8 @@
 
     <meta name="description" content="Pokedextor, PokeAPi website."/>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href = "./css/styles.css" >
 
     <title> Pokedextor </title>
@@ -17,54 +18,56 @@
 
 <body>
 
-    <header class="jumbotron jumbotron-fluid">
+    <header class="jumbotron jumbotron-fluid mb-5 p-2">
 
         <h1 class="text-center"> Pokedextor </h1>
 
     </header>
 
-    <main>
+    <main class="my-5 min-vh-100 row">
         
-        <div class="container text-center">
+        <div class="my-auto col-12">
 
-            <form >
-   
-                <div class="input-group mb-3 row">
-                
-                    <label for="pokemonName" class="form-label col-xs-12 col-sm-4" style="font-size: 1.5rem;" >Pokemon Name: </label>
+            <div class="container text-center my-5 ">
 
-                    <div class=" col-xs-12 col-sm-8 input-group-append">
-
-                        <input class = "form-control ml-3" type="text" id="pokemonName" name="pokemonName" placeholder="Enter a pokemon name!">
-                        <button id="submit" type="button" class="btn btn-outline-secondary ">Submit</button>   
-
+                <form >
+       
+                    <div class="input-group mb-3 row">
+                    
+                        <label for="pokemonName" class="form-label col-xs-12 col-sm-4" style="font-size: 1.5rem;" >Pokemon Name: </label>
+    
+                        <div class=" col-xs-12 col-sm-8 input-group-append " style="height: 3rem;">
+    
+                            <input class = "form-control" style="height: 3rem;" type="text" id="pokemonName" name="pokemonName" placeholder="Enter a pokemon name!">
+                            <button id="submit" type="button" class="btn btn-outline-secondary"> <i class="fa fa-search" aria-hidden="true"> </i> </button>   
+    
+                        </div>
+    
                     </div>
-
-                </div>
-                                      
-            </form> 
-
-        </div>
-
-        <div class="container text-center">
-
-            <button type="button" id="loadPrevBtn" class="btn btn-primary mt-4">Load Previous</button>
-
-            <div id="pokemonDisplay" class=" mt-5" >
-
-           
-
+                                          
+                </form> 
+    
             </div>
-        
-            <button type="button" id="loadMoreBtn" class="btn btn-primary">Load More</button>
+    
+            <div class="container text-center my-5">
+    
+                <button type="button" id="loadPrevBtn" class="btn btn-primary my-4">Load Previous</button>
 
-            <button type="button" id="allPokemonBtn" class="btn btn-primary ml-4 d-none">All Pokemon</button>
-
+                <div id="pokemonDisplay" class=" my-5" >
+    
+                </div>
+            
+                <button type="button" id="loadMoreBtn" class="btn btn-primary my-4">Load More</button>
+    
+                <button type="button" id="allPokemonBtn" class="btn btn-primary ml-4 d-none my-4">All Pokemon</button>
+    
+            </div>
+            
         </div>
 
     </main>
 
-    <footer class="jumbotron jumbotron-fluid mb-0 mt-4">
+    <footer class="jumbotron jumbotron-fluid mb-0 mt-5 p-1">
 
         <span class="text-center d-block"><a href="https://pokeapi.co/" >PokeAPI</a></span>
         <span class="d-block text-center"> &copy; 2020 Pokedextor </span>

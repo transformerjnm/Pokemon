@@ -123,17 +123,42 @@ let getPokemon = ( offset, pokemon ) => {
         ( data ) => {
         
             if ( resultSetPlural ) {
-
                 //show list of pokemon
 
+                let i = 1;
+                let halfPokemonNum = (data.results.length / 2 );
+
+                //create a row and two col
+                let firstColPokemon = "<div class=\"row\" > <div class=\"col-sm-6\" > ";
+                let secondColPokemon = "<div class=\"col-sm-6\" >";
+
+                
                 //add each pokemon from the result set to the all Pokemon in formatted html
                 data.results.forEach( singlePokemon => {
                         
-                    //single pokemon that on click loads that pokemon stats.
-                    allPokemon += ' <p onclick = \" getPokemon( 0, \'' + singlePokemon.name + '\' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
+                    //put first half of pokemon into first col
+                    if( i <= halfPokemonNum ) {
 
-                });
-        
+                        firstColPokemon += ' <p onclick = \" getPokemon( 0, \'' + singlePokemon.name + '\' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
+                        i++;
+
+                    } else {
+
+                        //second half of pokemon in second col
+                        secondColPokemon += ' <p onclick = \" getPokemon( 0, \'' + singlePokemon.name + '\' ) \" class = \" pokemonList \" > ' + singlePokemon.name + ' </p> ';
+                        i++;
+
+                    }
+                    
+                });//foreach
+
+                //close col div
+                firstColPokemon += "</div>";
+                secondColPokemon += "</div>";
+                
+                //add two cols together and close row div
+                allPokemon = firstColPokemon + secondColPokemon + "</div>";
+
                 //add formatted html to div pokemon display
                 pokemonDisplay.innerHTML = allPokemon;
             
