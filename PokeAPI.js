@@ -70,7 +70,7 @@ let getMove = ( move,  pokemonName ) => {
                 pokemonMove += '<span style="font-size: 1.2rem" > Power Points: ' + data.pp + '</span><br><br>';
 
             }
-            pokemonMove += '<button type="button" class="btn btn-primary" onclick = \" getPokemon( 0, \'' + pokemonName + '\' ) \" >'+ pokemonName +'</button><br><br>'
+            pokemonMove += '<button type="button" class="btn btn-primary currentPokemonBtn" onclick = \" getPokemon( 0, \'' + pokemonName + '\' ) \" >'+ pokemonName +'</button><br><br>'
             pokemonDisplay.innerHTML = pokemonMove;
 
         }//anonyms function
