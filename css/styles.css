@@ -38,20 +38,20 @@ footer{
     background-image: linear-gradient(45deg, var(--font-color1), var(--font-color2));
 }
 
-.submitBtn, #loadMoreBtn, #loadPrevBtn, #allPokemonBtn {
+.submitBtn, #loadMoreBtn, #loadPrevBtn, #allPokemonBtn, .currentPokemonBtn {
     color: var(--font-color1);
     background-color: var(--accent-color);
     border: none;
     transition: background-color .6s ease-in-out;
 }
 
- #loadMoreBtn:hover, #loadMoreBtn:focus, #loadPrevBtn:hover, #loadPrevBtn:focus, #allPokemonBtn:hover, #allPokemonBtn:focus {
+ #loadMoreBtn:hover, #loadMoreBtn:focus, #loadPrevBtn:hover, #loadPrevBtn:focus, #allPokemonBtn:hover, #allPokemonBtn:focus, .currentPokemonBtn:hover, .currentPokemonBtn:focus {
     transform: scale(1.1);
     background-color: var(--font-color2);
     box-shadow: none;
 }
 
-#submit:active, #loadMoreBtn:active, #allPokemonBtn:active, #loadPrevBtn:active{
+#submit:active, #loadMoreBtn:active, #allPokemonBtn:active, #loadPrevBtn:active, .currentPokemonBtn:active{
     box-shadow: none !important;
 }
 
